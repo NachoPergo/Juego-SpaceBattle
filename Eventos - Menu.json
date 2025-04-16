@@ -1,0 +1,137 @@
+{
+	"name": "Eventos - Menu",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 650869162283520
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle",
+					"objectClass": "nav_ter",
+					"sid": 651687333811144,
+					"parameters": {
+						"angle": "180"
+					}
+				}
+			],
+			"sid": 542357666336916
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 902323052900656,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "nav_inic"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 656221452719729,
+					"parameters": {
+						"object-to-create": "buena_suerte",
+						"layer": "\"Menú\"",
+						"x": "88",
+						"y": "900",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "ayuda_menu",
+					"sid": 540000468812152,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 110344385556477,
+					"parameters": {
+						"seconds": "2.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 304292517512304,
+					"parameters": {
+						"layout": "Nivel_Inicial"
+					}
+				}
+			],
+			"sid": 938667056324486
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 307521351805506,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "nav_ter"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 497198150497417,
+					"parameters": {
+						"object-to-create": "decepcion_txt",
+						"layer": "0",
+						"x": "140",
+						"y": "800",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "nav_ter",
+					"sid": 290108544319716,
+					"behaviorType": "Físicas",
+					"parameters": {
+						"mode": "enabled"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 430241844659155,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 914679760540043
+				}
+			],
+			"sid": 119569407227065
+		}
+	],
+	"sid": 598490065311140
+}

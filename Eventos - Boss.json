@@ -1,0 +1,485 @@
+{
+	"name": "Eventos - Boss",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 265114601677333
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle",
+					"objectClass": "jug_boss",
+					"sid": 703063493137041,
+					"parameters": {
+						"angle": "270"
+					}
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "jug_boss",
+					"sid": 942567922398130,
+					"behaviorType": "8Direcciones",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "boss",
+					"sid": 751495856827459,
+					"behaviorType": "Seno",
+					"parameters": {
+						"state": "inactive"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 681898682506734,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "exterminador",
+					"sid": 655355996503395,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "boss",
+					"sid": 542754931221039,
+					"behaviorType": "Seno",
+					"parameters": {
+						"state": "active"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "jug_boss",
+					"sid": 756025815878424,
+					"behaviorType": "Bala",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "jug_boss",
+					"sid": 279281024600082,
+					"behaviorType": "8Direcciones",
+					"parameters": {
+						"input": "stop-ignoring"
+					}
+				}
+			],
+			"sid": 614454455905878
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Eventos activos",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Teclado",
+							"sid": 676093415313618,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "jug_boss",
+							"sid": 472163835478583,
+							"parameters": {
+								"object": "bala",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 965034962590725,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 811525544684596,
+									"parameters": {
+										"interval-seconds": "6"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 986668453317659,
+									"parameters": {
+										"object-to-create": "ast2",
+										"layer": "\"Boss\"",
+										"x": "random(1,470)",
+										"y": "50",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								}
+							],
+							"sid": 879063853184995
+						}
+					]
+				}
+			],
+			"sid": 889255986812832
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "disp_boss",
+					"sid": 629460332721832,
+					"parameters": {
+						"object": "jug_boss"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "jug_boss",
+					"sid": 503073501608749
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "jug_boss",
+					"sid": 444828075774566,
+					"parameters": {
+						"object": "exppro",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 458604936815424
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "boss",
+					"sid": 963975680583883,
+					"parameters": {
+						"object": "bala"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "bala",
+					"sid": 978394017777256
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "boss",
+					"sid": 537145652507211,
+					"parameters": {
+						"instance-variable": "Vida",
+						"value": "4"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "barradeVida",
+					"sid": 916901402319491,
+					"parameters": {
+						"width": "barradeVida.Width - 4"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "boss",
+					"sid": 551087653078697,
+					"parameters": {
+						"opacity": "60"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 760203527831173,
+					"parameters": {
+						"seconds": "0.3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "boss",
+					"sid": 757971756750736,
+					"parameters": {
+						"opacity": "100"
+					}
+				}
+			],
+			"sid": 210608674516045
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "boss",
+					"sid": 673571589462690,
+					"parameters": {
+						"instance-variable": "Vida",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-width",
+					"objectClass": "barradeVida",
+					"sid": 378487520814768,
+					"parameters": {
+						"width": "0"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "boss",
+					"sid": 368943928585718,
+					"parameters": {
+						"object": "exppro",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "boss",
+					"sid": 210000457190643
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 983596029489888,
+					"parameters": {
+						"group-name": "\"Eventos activos\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "jug_boss",
+					"sid": 965280666965970,
+					"behaviorType": "8Direcciones",
+					"parameters": {
+						"input": "start-ignoring"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "JEFE_DERROTADO",
+					"sid": 551453034941209,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 528443633224856,
+					"parameters": {
+						"seconds": "3.5",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 304391429792063,
+					"parameters": {
+						"layout": "Menú"
+					}
+				}
+			],
+			"sid": 575581094158246
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 460349274624650,
+					"parameters": {
+						"interval-seconds": "1.25"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 266096085588103,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "boss",
+					"sid": 973314240899101,
+					"parameters": {
+						"object": "disp_boss",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 618256650731799
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-destroyed",
+					"objectClass": "jug_boss",
+					"sid": 877784496779289
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "reintentarboss",
+					"sid": 932465422153670,
+					"parameters": {
+						"opacity": "100"
+					}
+				}
+			],
+			"sid": 163321138888922
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "jug_boss",
+					"sid": 659314724495230,
+					"parameters": {
+						"object": "boss"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "jug_boss",
+					"sid": 511958295366464
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "jug_boss",
+					"sid": 718032190036677,
+					"parameters": {
+						"object": "exppro",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 774103507906277
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "jug_boss",
+					"sid": 400435770036207,
+					"parameters": {
+						"object": "ast2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "jug_boss",
+					"sid": 917041831307470
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "jug_boss",
+					"sid": 265291922811878,
+					"parameters": {
+						"object": "exppro",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				}
+			],
+			"sid": 681308746647707
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Teclado",
+					"sid": 464635934585729,
+					"parameters": {
+						"key": 82
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 722365324820918
+				}
+			],
+			"sid": 414243294957641
+		}
+	],
+	"sid": 872245398192980
+}

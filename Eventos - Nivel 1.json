@@ -1,0 +1,466 @@
+{
+	"name": "Eventos - Nivel 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Puntaje",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 322044886828016
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 349151296966462
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle",
+					"objectClass": "jug_lvl1",
+					"sid": 307342688434661,
+					"parameters": {
+						"angle": "270"
+					}
+				}
+			],
+			"sid": 914229015707564
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Enemigos",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 317726896923657,
+							"parameters": {
+								"interval-seconds": "6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 755234074465586,
+							"parameters": {
+								"object-to-create": "enem1",
+								"layer": "\"Nivel\"",
+								"x": "random(20,450)",
+								"y": "random(80,140)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 408048634983748
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 581028376604485,
+							"parameters": {
+								"interval-seconds": "random(1, 2.5)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "enem1",
+							"sid": 286476233484978,
+							"parameters": {
+								"object": "bala_enem",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "bala_enem",
+							"sid": 135284568224254,
+							"behaviorType": "Bala",
+							"parameters": {
+								"angle": "90"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "bala_enem",
+							"sid": 939740277779236,
+							"behaviorType": "Bala",
+							"parameters": {
+								"speed": "random(200,400)"
+							}
+						}
+					],
+					"sid": 730963206455423,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 132315102402227,
+									"parameters": {
+										"interval-seconds": "random(2.5,4.5)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 226212745107830,
+									"parameters": {
+										"object-to-create": "ast1",
+										"layer": "\"Nivel\"",
+										"x": "random (40, 440)",
+										"y": "-50",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "ast1",
+									"sid": 600492386248349,
+									"behaviorType": "Bala",
+									"parameters": {
+										"speed": "random (100,500)"
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "ast1",
+									"sid": 146687704173515,
+									"behaviorType": "Bala",
+									"parameters": {
+										"angle": "90"
+									}
+								}
+							],
+							"sid": 521804987916216
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Teclado",
+							"sid": 510117461790863,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "jug_lvl1",
+							"sid": 967533070241044,
+							"parameters": {
+								"object": "bala",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "jug_lvl1",
+							"sid": 189565465189675,
+							"parameters": {
+								"object": "bala",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 820550130813041
+				}
+			],
+			"sid": 637983276403955
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "jug_lvl1",
+					"sid": 272960583490126,
+					"parameters": {
+						"object": "ast1"
+					}
+				},
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "jug_lvl1",
+					"sid": 987374442112590,
+					"parameters": {
+						"object": "enem1"
+					}
+				},
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "jug_lvl1",
+					"sid": 895286427588705,
+					"parameters": {
+						"object": "bala_enem"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 952594987396524,
+					"parameters": {
+						"group-name": "\"Enemigos\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "jug_lvl1",
+					"sid": 344742114517617
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "jug_lvl1",
+					"sid": 157563896724499,
+					"parameters": {
+						"object": "exppro",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "reintentartxt",
+					"sid": 842904152411867,
+					"parameters": {
+						"opacity": "100"
+					}
+				},
+				{
+					"id": "set-scale",
+					"objectClass": "reintentartxt",
+					"sid": 939911929736948,
+					"parameters": {
+						"scale": "1.25"
+					}
+				}
+			],
+			"sid": 742571809249610,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "bala",
+					"sid": 436105635283604,
+					"parameters": {
+						"object": "ast1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "bala",
+					"sid": 428131573198426
+				},
+				{
+					"id": "destroy",
+					"objectClass": "ast1",
+					"sid": 378959420865425
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 686286030520617,
+					"parameters": {
+						"variable": "Puntaje",
+						"value": "200"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "puntaje_txt",
+					"sid": 492649788592785,
+					"parameters": {
+						"text": "\"Puntos: \" & Puntaje"
+					}
+				}
+			],
+			"sid": 791636967839169
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "bala",
+					"sid": 695720881387316,
+					"parameters": {
+						"object": "enem1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "enem1",
+					"sid": 443439159571848
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "enem1",
+					"sid": 600476844000308,
+					"parameters": {
+						"object": "exppro",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 334875117116641,
+					"parameters": {
+						"seconds": "1.0",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "bala",
+					"sid": 908529580209699
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 733360885726545,
+					"parameters": {
+						"variable": "Puntaje",
+						"value": "500"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "puntaje_txt",
+					"sid": 293637173570333,
+					"parameters": {
+						"text": "\"Puntos: \" & Puntaje"
+					}
+				}
+			],
+			"sid": 216420512889693
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Teclado",
+					"sid": 679576313392486,
+					"parameters": {
+						"key": 82
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 842216144044083
+				},
+				{
+					"id": "reset-eventvar",
+					"objectClass": "System",
+					"sid": 715546254389089,
+					"parameters": {
+						"variable": "Puntaje"
+					}
+				}
+			],
+			"sid": 219068362704784
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 613426973376298,
+					"parameters": {
+						"variable": "Puntaje",
+						"comparison": 5,
+						"value": "10000"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 963285756221838,
+					"parameters": {
+						"group-name": "\"Enemigos\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 880022795937857,
+					"parameters": {
+						"seconds": "3",
+						"use-timescale": true
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 887617483236789,
+					"parameters": {
+						"layout": "Boss"
+					}
+				}
+			],
+			"sid": 322680444616010
+		}
+	],
+	"sid": 698315815552046
+}

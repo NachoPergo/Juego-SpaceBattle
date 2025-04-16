@@ -1,0 +1,95 @@
+{
+	"name": "boss",
+	"plugin-id": "Sprite",
+	"sid": 749614815668199,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "Vida",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 351243618847327
+		},
+		{
+			"name": "vida_max",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 553553271452896
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Turret",
+			"name": "Torreta",
+			"sid": 458648986791621
+		},
+		{
+			"behaviorId": "solid",
+			"name": "Sólido",
+			"sid": 169240188217577
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Seno",
+			"sid": 885855544638044
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 128,
+						"height": 128,
+						"originX": 0.4765625,
+						"originY": 0.8359375,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 9105982,
+						"collisionPoly": {
+							"points": [
+								0.421875,
+								0.1328125,
+								0.609375,
+								0.140625,
+								0.8828125,
+								0.28125,
+								0.875,
+								0.5390625,
+								0.859375,
+								0.5859375,
+								0.5546875,
+								0.859375,
+								0.4453125,
+								0.859375,
+								0.140625,
+								0.5859375,
+								0.125,
+								0.5390625,
+								0.1171875,
+								0.28125
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 588633147602972,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

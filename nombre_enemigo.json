@@ -1,0 +1,9 @@
+{
+	"name": "nombre_enemigo",
+	"plugin-id": "TextBox",
+	"sid": 813453219878841,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": []
+}

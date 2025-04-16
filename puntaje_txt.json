@@ -1,0 +1,16 @@
+{
+	"name": "puntaje_txt",
+	"plugin-id": "Text",
+	"sid": 102733420397126,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Ancla",
+			"sid": 198959706993173
+		}
+	],
+	"effectTypes": []
+}

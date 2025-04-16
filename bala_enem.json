@@ -1,0 +1,68 @@
+{
+	"name": "bala_enem",
+	"plugin-id": "Sprite",
+	"sid": 684530415369809,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bala",
+			"sid": 921582115243838
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 1834443,
+						"collisionPoly": {
+							"points": [
+								0.96875,
+								0.4375,
+								0.96875,
+								0.5625,
+								0.90625,
+								0.625,
+								0.78125,
+								0.6875,
+								0.0625,
+								0.6875,
+								0.0625,
+								0.3125,
+								0.75,
+								0.3125,
+								0.84375,
+								0.34375,
+								0.90625,
+								0.375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 725106552291957,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
